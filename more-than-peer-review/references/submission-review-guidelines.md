@@ -6,38 +6,72 @@ For the default journal format:
 
 | Field | Target | Hard maximum |
 |---|---:|---:|
-| Comments to the Author(s) | 300-500 English words | 700 words |
-| Opening assessment | 20-40 words | 50 words |
-| Conclusion-only numbered point | 25-45 words | 55 words |
-| Numbered point with requested action | 40-60 words | 70 words |
+| Comments to the Author(s) | 250-700 English words | 1,200 words |
+| Opening assessment or summary | 20-100 words | 150 words |
+| Individual numbered point | As much as the argument needs | 180 words |
 | Confidential Comments to the Editor | 50-80 words | 100 words |
 | Short form explanation | 20-45 words | 60 words |
 
-Use three to six numbered author points when justified; allow up to eight only for
-independent contribution-level issues with independent evidence and consequences.
-Eight is a hard maximum, not a target. Use no more than three sentences per point.
+The venue form and the substance control length. The default final review has one
+thesis, one or two root fault lines, and four numbered comments. A non-Accept review
+must have at least three numbered comments. The comments need not be independent.
+They may develop one root problem through its enabling assumption, mechanism,
+counterexample, proposed safeguard, downstream claim, or evaluation consequence.
+More than four comments are allowed when the central argument genuinely needs them.
+Point count is not a proxy for breadth. Do not add unrelated categories merely to
+reach the target, and do not split one sentence-level observation into several points.
 
 ## Author-visible review
 
-Open with a short overall assessment, not an abstract rewrite. Keep comments at the
-level of the central contribution while remaining specific:
+Open with a short overall assessment or a genuinely useful summary, not a mechanical
+abstract rewrite. Keep comments at the level of the central contribution while
+remaining specific:
 
 1. State the contribution-level judgment.
 2. Anchor it to a page plus section, table, figure, equation, theorem, appendix, or
    other stable manuscript locator when available.
 3. Explain why it affects validity, interpretation, reproducibility, ethics, or the
    claimed contribution.
-4. Add at most one bounded requested action when a proportionate remedy exists.
+4. Add a bounded request or pointed question when a proportionate remedy exists.
+
+State the review thesis early. The author should be able to tell which one or two
+root problems drive the recommendation. Trace those problems through three or four
+connected comments instead of presenting a balanced survey of every review dimension.
+It is acceptable and often preferable for a later point to begin from the result of
+an earlier one.
 
 Merge local errors sharing the same cause or consequence. Use one to three
 representative facts rather than cataloguing every symptom. Remove isolated wording,
 formatting, cross-reference, and bibliographic issues unless they form a systematic
 problem that affects the evidence base.
 
+Do not promote a private-record issue into the final review merely because a standard
+review category has not yet appeared. Numerical, reproducibility, baseline, and
+presentation comments are normally omitted once decisive protocol, design, or
+motivation defects already establish the recommendation. Include them when they are
+evidence for the same fault line or independently alter the decision.
+
 Do not demand new work merely to make the review appear rigorous. New experiments or
 analyses must be necessary for a central claim and proportionate to scope. Prefer
 narrowing, clarification, correction, sensitivity analysis, or limitation language
 when sufficient.
+
+The private scaffold may use explicit fields to improve reasoning, but do not copy
+`Observation:`, `Why it matters:`, `Evidence or criterion:`, and `Requested action:`
+labels into the author-facing review unless the venue asks for them. Write connected
+prose. Vary paragraph length according to the complexity of the point; do not force
+every comment into the same number of sentences or the same claim-consequence-request
+cadence.
+
+Use a structure natural to the venue and material: an opening followed by numbered
+comments, or a short `Summary` and `Major concerns` section, are both acceptable.
+Direct questions can sound natural and focus the dispute, especially after a concrete
+counterexample. Avoid stock openings, generic praise, repeated transition phrases,
+and identical closing requests across points.
+
+Apply the punctuation house style in `natural-review-prose.md`. Em dashes, semicolons,
+and colons are prohibited in author-facing and editor-facing prose. Restructure the
+sentence rather than substituting another conspicuous punctuation pattern.
 
 Use professional, direct language. Do not accuse authors, speculate about intent,
 announce an editorial decision, fabricate verification, or use generic praise or
@@ -55,7 +89,9 @@ criticism unsupported by the manuscript.
   contribution threshold for substantive reasons.
 
 Formatting alone does not justify rejection. A decisive contribution-level defect
-may justify rejection even if it produces only one main comment.
+may justify rejection even when it is the only root fault line. Develop its
+mechanism and consequences through the required connected comments without
+inventing independent defects.
 
 ## Confidential editor channel
 
@@ -68,6 +104,20 @@ optional draft outside the text to paste. If the field is confirmed absent, omit
 Never put ordinary scientific criticism only in the editor channel. Never expose
 reviewer identity under an anonymized process.
 
+Author and editor comment fields are not process logs. Do not mention model or tool
+use, intake declarations, authorization records, policy checks, document preflight,
+draft status, or the need for human verification in either ordinary comment field.
+When the controlling policy, editor, or actual form requires an assistance disclosure,
+draft it in a separate `disclosure-draft.md` mapped to the required destination.
+A dedicated form field is not a prerequisite. If the required destination is the
+confidential editor field, place the disclosure there during authorized form filling.
+Keep it separate from the scientific review artifact and recommendation rationale.
+
+The validator flags ambiguous process terms for contextual review because phrases
+such as `human verification` may describe the paper's method. Keep scientific uses
+when supported by the manuscript, and remove references to preparing this review.
+A warning does not waive the rule against internal workflow metadata.
+
 ## Final verification
 
 - Verify every factual statement, number, citation identifier, and locator.
@@ -75,4 +125,5 @@ reviewer identity under an anonymized process.
 - Confirm no unsupported suspicion or internal process history remains.
 - Check limits, placeholders, duplicated points, and channel separation.
 - State competence limits and specialist-review needs when material.
-- Label the result as a working draft requiring accountable-human verification.
+- Put any working-draft or human-verification notice in the handoff message outside
+  the paste-ready review fields.
