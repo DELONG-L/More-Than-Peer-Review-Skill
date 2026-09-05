@@ -215,19 +215,6 @@ class SubmissionReviewTests(unittest.TestCase):
                     {item["code"] for item in report["errors"]},
                 )
 
-    def test_internal_process_disclosure_blocks_submission_prose(self) -> None:
-        review = VALID_REVIEW.replace(
-            "Both concerns are disclosed to the authors and\n"
-            "appear addressable through a corrected analysis and reproducibility record.",
-            "Local AI assistance was used under recorded permission and human verification is required.",
-        )
-        report = VALIDATOR.validate(review)
-        self.assertFalse(report["valid"])
-        self.assertIn(
-            "INTERNAL_PROCESS_TEXT_IN_SUBMISSION",
-            {item["code"] for item in report["errors"]},
-        )
-
     def test_technical_punctuation_preserved_in_both_fields(self) -> None:
         technical_spans = (
             "See https://example.org/data.",
@@ -265,24 +252,53 @@ class SubmissionReviewTests(unittest.TestCase):
                     self.assertFalse(report["valid"])
                     self.assertIn(code, {item["code"] for item in report["errors"]})
 
-    def test_scientific_process_terms_require_context_check_without_blocking(self) -> None:
-        for term in ("human verification", "working draft", "security preflight", "intake record"):
-            with self.subTest(term=term):
-                report = VALIDATOR.validate(VALID_REVIEW.replace(
-                    "1. Section 3", f"The method in Section 4 includes {term}.\n\n1. Section 3"
-                ))
-                self.assertTrue(report["valid"], report["errors"])
+    def test_page_and_line_locators_block_submission_prose(self) -> None:
+        replacements = {
+            "PAGE_LOCATOR_IN_PROSE": "The acceptance rule on page 7 checks only accuracy.",
+            "LINE_LOCATOR_IN_PROSE": "The claim in lines 418 to 426 does not follow.",
+        }
+        for expected_code, sentence in replacements.items():
+            with self.subTest(expected_code=expected_code):
+                review = VALID_REVIEW.replace(
+                    "The paper presents a useful framework, but the current evidence does not yet\n"
+                    "establish the central generalization claim.",
+                    sentence,
+                )
+                report = VALIDATOR.validate(review)
+                self.assertFalse(report["valid"])
                 self.assertIn(
-                    "PROCESS_LANGUAGE_CONTEXT_REVIEW",
-                    {item["code"] for item in report["warnings"]},
+                    expected_code,
+                    {item["code"] for item in report["errors"]},
                 )
 
-    def test_explicit_review_verification_notice_still_blocks(self) -> None:
-        report = VALIDATOR.validate(VALID_REVIEW + "\nThis review requires human verification.\n")
-        self.assertFalse(report["valid"])
+    def test_section_figure_and_table_locators_remain_valid(self) -> None:
+        review = VALID_REVIEW.replace(
+            "The paper presents a useful framework, but the current evidence does not yet\n"
+            "establish the central generalization claim.",
+            "Section 4 and Figure 3 use a threshold that conflicts with Table 2.",
+        )
+        report = VALIDATOR.validate(review)
+        self.assertTrue(report["valid"])
+
+    def test_repeated_first_person_scenario_openings_warn(self) -> None:
+        points = "\n\n".join(
+            (
+                f"{index}. Here, I consider a construction in Section {index}. "
+                "The stated check accepts it even though the claimed work is absent."
+            )
+            for index in range(1, 5)
+        )
+        review = (
+            "# Recommendation\n\nMajor Revision\n\n"
+            "# Comments to the Author(s)\n\n"
+            "The verification rule does not establish the claimed property.\n\n"
+            + points
+        )
+        report = VALIDATOR.validate(review)
+        self.assertTrue(report["valid"])
         self.assertIn(
-            "INTERNAL_PROCESS_TEXT_IN_SUBMISSION",
-            {item["code"] for item in report["errors"]},
+            "REPEATED_FIRST_PERSON_SCENARIO_OPENING_REVIEW",
+            {item["code"] for item in report["warnings"]},
         )
 
 

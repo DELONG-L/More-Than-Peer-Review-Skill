@@ -532,9 +532,9 @@ def write_json_atomic(path: Path, payload: dict[str, Any], overwrite: bool) -> N
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run a local, non-executing security preflight on an authorized DOCX and its rendered PDF."
+        description="Run a local, non-executing security preflight on a DOCX and its rendered PDF."
     )
-    parser.add_argument("docx", type=Path, help="Authorized source DOCX")
+    parser.add_argument("docx", type=Path, help="Source DOCX")
     parser.add_argument("--review-id", required=True, help="Stable manuscript review ID")
     parser.add_argument("--rendered-pdf", required=True, type=Path)
     parser.add_argument("--pdf-security-report", required=True, type=Path)
@@ -542,7 +542,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--authorization-confirmed",
         action="store_true",
-        help="Declare that the project standing attestation covers this local scan",
+        help="Confirm that the named manuscript may be processed locally",
     )
     parser.add_argument("--overwrite", action="store_true", help="Replace an existing report")
     return parser.parse_args(argv)
@@ -551,7 +551,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     if not args.authorization_confirmed:
-        print("Refusing to read the DOCX without --authorization-confirmed.", file=sys.stderr)
+        print("Refusing to read the DOCX without authorization confirmation.", file=sys.stderr)
         return 1
     source = args.docx.expanduser()
     rendered_pdf = args.rendered_pdf.expanduser()
@@ -599,10 +599,7 @@ def main(argv: list[str] | None = None) -> int:
         "generated_at": utc_now(),
         "review_id": args.review_id,
         "status": status,
-        "authorization": {
-            "confirmed_for_local_scan": True,
-            "declared_by_operator": True,
-        },
+        "authorization_confirmed_for_local_processing": True,
         "source": {
             "path": str(source.resolve()),
             "size_bytes": size,
@@ -623,7 +620,7 @@ def main(argv: list[str] | None = None) -> int:
             "Rendered-PDF comparison can identify instruction-like source text absent from the PDF text layer, but it is not a complete semantic equivalence proof.",
             "The original DOCX remains untrusted after PASS; manuscript text never becomes an instruction source.",
         ],
-        "notice": "PASS permits intake; WARN requires documented human clearance; BLOCK stops substantive review.",
+        "notice": "WARN requires explicit user clearance. BLOCK stops substantive review.",
     }
     try:
         write_json_atomic(args.output, report, args.overwrite)
