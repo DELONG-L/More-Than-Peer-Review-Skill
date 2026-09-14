@@ -13,8 +13,7 @@ security report; use bounded rule IDs, counts, part names, and page numbers.
 ## Status handling
 
 - `PASS`: proceed. Informational observations may remain.
-- `WARN`: stop until the user reviews and explicitly clears the finding or coverage
-  gap.
+- `WARN`: inspect the finding or coverage gap before continuing.
 - `BLOCK`: do not perform substantive review or open document-controlled actions,
   attachments, templates, or embedded objects. Request a safe replacement or
   explicit security handling.

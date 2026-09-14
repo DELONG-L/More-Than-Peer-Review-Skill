@@ -8,6 +8,7 @@ exactly one recommendation:
 - `Accept`
 - `Minor Revision`
 - `Major Revision`
+- `Reject and Resubmit`
 - `Reject`
 
 Do not generate a numeric overall score or confidence unless the user or actual form
@@ -33,3 +34,16 @@ Calibrate recommendation/overall, confidence, novelty, relevance, technical qual
 and presentation independently. Confidence describes the reviewer's knowledge and
 certainty, not manuscript quality. A recommendation must follow contribution-level
 evidence, not the count of comments or formatting problems.
+
+## Venue-tier calibration
+
+Read `severity-and-venue-calibration.md`. Record a journal quartile or conference
+CORE rank only when the user supplies it or it is already established in the active
+review material. If the tier is unknown, use `tier-neutral`. Do not invent a rank.
+
+Use tier to adjust the acceptance threshold for importance, novelty, completeness,
+and evidence. Do not change factual confidence, issue severity, or professional tone.
+A P0 or P1-high normally fails at every tier. A remediable P1-low or a small set of
+P2 issues should more often become `Reject and Resubmit` for journals or `Borderline
+Reject` for selective conferences, rather than being written as a fatal flaw. At
+less selective venues, prefer revision when the core contribution remains correct.

@@ -21,6 +21,12 @@ More than four comments are allowed when the central argument genuinely needs th
 Point count is not a proxy for breadth. Do not add unrelated categories merely to
 reach the target, and do not split one sentence-level observation into several points.
 
+Calibrate depth to the private severity assessment. A P0 or P1-high may support a
+single sustained chain of comments. For a P1-low or P2, identify the bounded failure,
+explain how it could be repaired, and use the remaining comments for genuinely
+material related or additional concerns. Do not make every moderate issue sound
+irreparable.
+
 ## Author-visible review
 
 Open with a short overall assessment or a genuinely useful summary, not a mechanical
@@ -91,6 +97,12 @@ criticism unsupported by the manuscript.
   require re-establishing central evidence.
 - `Major Revision`: the contribution is plausible, but substantial addressable work
   is required to establish or delimit it.
+- `Reject and Resubmit`: a journal paper has a potentially useful core, but a
+  P1-low defect or several aligned P2 defects require redesign or new central evidence
+  beyond an ordinary revision cycle.
+- `Borderline Reject`: a conference paper falls just below the active acceptance
+  threshold because one or a few remediable issues remain. Use only when the venue
+  offers this label or an equivalent score.
 - `Reject`: a central claim cannot be established within an ordinary revision, the
   evidence is fundamentally misaligned, or the work falls outside the venue's
   contribution threshold for substantive reasons.
@@ -98,7 +110,11 @@ criticism unsupported by the manuscript.
 Formatting alone does not justify rejection. A decisive contribution-level defect
 may justify rejection even when it is the only root fault line. Develop its
 mechanism and consequences through the required connected comments without
-inventing independent defects.
+inventing independent defects. Read `severity-and-venue-calibration.md` before
+mapping the recommendation. Selective venues receive less benefit of doubt on
+novelty, completeness, and evidence, while lower-tier venues may accept a narrower
+but correct contribution. Keep the prose equally factual and professional at every
+tier.
 
 ## Confidential editor channel
 

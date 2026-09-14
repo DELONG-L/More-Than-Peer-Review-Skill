@@ -71,7 +71,8 @@ one root failure, not categories that need independent treatment.
 
 Do the broad search privately, but do not turn the final review into a report on every
 category inspected. Select the earliest and most consequential break in the central
-claim chain. That becomes the review thesis.
+claim chain. Assign candidate issues an internal severity using
+`severity-and-venue-calibration.md` before choosing the review thesis.
 
 Normally choose one or two root fault lines. A fault line qualifies when it is central to
 the claimed contribution, supported by a concrete manuscript location or
@@ -98,7 +99,10 @@ true:
 Keep ordinary reproducibility gaps, minor numerical discrepancies, baseline breadth,
 presentation issues, and optional improvements in the private record unless they
 directly support the review thesis. Comprehensive internal checking is useful.
-Comprehensive output is not the goal.
+Comprehensive output is not the goal. A supported P0 or P1-high warrants sustained
+pressure on its mechanism and consequences. A P1-low or P2 should receive a concrete
+repair path and should not be inflated into a fatal flaw merely to preserve a
+single-attack review shape.
 
 ## Review the story and motivation
 

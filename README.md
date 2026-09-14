@@ -9,6 +9,12 @@ the motivation, design, algorithm, system model, or claim mechanism. It then dev
 at least three and normally four connected comments from those roots. The comments
 need not be independent.
 
+Candidate findings are first rated privately from P0 to P3. Fatal P0 or P1-high
+failures receive sustained treatment. Remediable P1-low or P2 issues receive concrete
+repair advice and are not stretched into artificial fatal flaws. Recommendation
+thresholds are then calibrated to a supplied journal quartile or conference CORE
+rank, while technical severity and professional tone remain unchanged.
+
 The prose stage supports reviewer-authored attacks and counterexamples, uneven point
 lengths, direct questions, and restrained first person. It rejects page and line
 locators, em dashes, semicolons, and colons in the submission prose.
@@ -16,11 +22,6 @@ locators, em dashes, semicolons, and colons in the submission prose.
 Bundled utilities perform local document preflight, workspace initialization,
 claim-evidence checks, statistical and reproducibility audits, scaffold generation,
 and final structure validation. They make no network or model calls.
-
-Before confidential content is read, the user confirms that they may process the
-named manuscript and that the venue permits the planned local AI assistance. This is
-a concise confirmation, not an intake form. The user clears security warnings,
-verifies the final review, and follows any venue disclosure requirement.
 
 ## Install
 
