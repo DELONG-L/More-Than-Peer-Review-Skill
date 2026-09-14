@@ -11,10 +11,30 @@ rubric:
     - accept
     - minor_revision
     - major_revision
+    - reject_and_resubmit
     - reject
   conference_resolution:
     - user_confirmed
     - platform_default_fallback
+
+calibration:
+  internal_severity:
+    - p0
+    - p1_high
+    - p1_low
+    - p2
+    - p3
+  unknown_venue_tier: tier_neutral
+  journal_tiers:
+    - q1
+    - q2
+    - q3
+    - q4
+  conference_core_ranks:
+    - a_star
+    - a
+    - b
+    - c
 
 optional_stages:
   research_presentation:

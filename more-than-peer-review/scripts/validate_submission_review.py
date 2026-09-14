@@ -16,7 +16,14 @@ from _common import (
 )
 
 
-RECOMMENDATIONS = {"Accept", "Minor Revision", "Major Revision", "Reject"}
+RECOMMENDATIONS = {
+    "Accept",
+    "Minor Revision",
+    "Major Revision",
+    "Reject and Resubmit",
+    "Borderline Reject",
+    "Reject",
+}
 WORD_RE = re.compile(r"\b[\w'-]+\b", re.UNICODE)
 POINT_RE = re.compile(r"(?ms)^\s*(\d+)\.\s+(.*?)(?=^\s*\d+\.\s+|\Z)")
 PLACEHOLDER_RE = re.compile(

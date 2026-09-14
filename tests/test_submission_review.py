@@ -100,7 +100,7 @@ class SubmissionReviewTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
         report = VALIDATOR.validate(
             template.replace(
-                "`Accept | Minor Revision | Major Revision | Reject`", "Reject"
+                "`Accept | Minor Revision | Major Revision | Reject and Resubmit | Borderline Reject | Reject`", "Reject"
             )
         )
         self.assertFalse(report["valid"])
@@ -126,6 +126,14 @@ class SubmissionReviewTests(unittest.TestCase):
             {item["code"] for item in report["errors"]},
         )
 
+    def test_calibrated_recommendation_labels_pass(self) -> None:
+        for label in ("Reject and Resubmit", "Borderline Reject"):
+            with self.subTest(label=label):
+                report = VALIDATOR.validate(
+                    VALID_REVIEW.replace("Major Revision", label, 1)
+                )
+                self.assertTrue(report["valid"], report["errors"])
+
     def test_each_current_template_placeholder_blocks_on_its_own(self) -> None:
         template = (
             ROOT / "more-than-peer-review" / "assets" / "submission_review_template.md"
@@ -145,7 +153,7 @@ class SubmissionReviewTests(unittest.TestCase):
             ROOT / "more-than-peer-review" / "assets" / "submission_review_template.md"
         ).read_text(encoding="utf-8")
         review = template.replace(
-            "`Accept | Minor Revision | Major Revision | Reject`", "Reject"
+            "`Accept | Minor Revision | Major Revision | Reject and Resubmit | Borderline Reject | Reject`", "Reject"
         ).replace(
             "[Short overall assessment or useful summary in prose.]",
             "The central contribution is not established.",

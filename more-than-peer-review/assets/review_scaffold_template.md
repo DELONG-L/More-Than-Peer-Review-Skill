@@ -16,6 +16,14 @@
 - Primary fault line 2 if needed
 - Why these fault lines are sufficient
 
+## Internal severity and venue calibration
+
+- Candidate finding severities: `P0`, `P1-high`, `P1-low`, `P2`, or `P3`
+- Severity rationale: centrality, realism, propagation, repair scope, and evidence certainty
+- Venue tier: journal quartile, conference CORE rank, or `tier-neutral`
+- Tier-adjusted acceptance threshold
+- Why the recommendation is proportionate to both severity and venue tier
+
 ## Concrete construction or boundary case
 
 - Actors and initial state
@@ -33,7 +41,7 @@
 - Observation
 - Evidence
 - Consequence
-- Requested action
+- Requested action or concrete repair path
 
 ## Connected author-comment chain
 
@@ -48,7 +56,7 @@
 
 ## Recommendation
 
-[Accept, Minor Revision, Major Revision, or Reject with a short rationale.]
+[Accept, Minor Revision, Major Revision, Reject and Resubmit, Borderline Reject when available, or Reject with a short rationale.]
 
 ## Comments to authors
 

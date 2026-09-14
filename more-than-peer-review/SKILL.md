@@ -107,12 +107,19 @@ algorithm, evidence, statistics, reproducibility, figures, tables, and citations
 Rank issues by their effect on the main claim, not by how easily they become requests
 for additional experiments.
 
-Select one organizing thesis and normally one or two root fault lines. Develop at
-least three and normally four author-facing comments from them. The comments need
-not be independent. A later point may trace another consequence, enabling
-assumption, failed safeguard, evidence mismatch, or headline claim caused by the
-same defect. Once the chain establishes the recommendation, stop collecting
-unrelated criticisms for the final draft.
+Read `references/severity-and-venue-calibration.md`. Assign each candidate issue an
+internal `P0` to `P3` severity before selecting the review thesis. For a supported
+`P0` or `P1-high`, pursue the root failure vertically through at least three and
+normally four connected comments. For `P1-low` or `P2`, state a concrete remedy and
+do not force that issue to carry the entire review. Continue looking for another
+serious or related issue, then stop when the remaining findings would not change the
+recommendation.
+
+Select one organizing thesis and normally one or two root fault lines. The comments
+need not be independent. A later point may trace another consequence, enabling
+assumption, failed safeguard, evidence mismatch, or headline claim caused by the same
+defect. Several related `P2` findings may reveal one `P1` root cause, but unrelated
+moderate findings do not become fatal merely by accumulation.
 
 Write the complete evidence record to `private-review.md`. Mark secondary findings
 that were deliberately withheld. Use “not reported” or “not available for review”
@@ -121,10 +128,15 @@ performed.
 
 ### 4. Map the recommendation
 
-Read `references/venue-rubrics.md` and create `venue-rubric.md`. If the user supplies
-a rubric, use it. Otherwise use the journal default of `Accept`, `Minor Revision`,
-`Major Revision`, or `Reject`, without a numeric score or confidence. Do not browse
-for venue rules using manuscript content.
+Read `references/venue-rubrics.md` and create `venue-rubric.md`. Record a user-supplied
+or already established journal quartile or conference CORE rank. If the tier is
+unknown, use tier-neutral calibration rather than inventing one. Venue tier changes
+the acceptance threshold and the amount of benefit of doubt, not the technical
+severity label or professional tone. For journals, use the closest available label
+among `Accept`, `Minor Revision`, `Major Revision`, `Reject and Resubmit`, and
+`Reject`. For conferences, map the judgment to the active scale and use `Borderline
+Reject` only when that label or its equivalent is available. Do not browse for venue
+rules using manuscript content.
 
 ### 5. Write the submission review
 
@@ -132,11 +144,13 @@ Read `references/submission-review-guidelines.md` and
 `references/natural-review-prose.md` in full. Draft from the same review workspace's
 verified private record.
 
-Write around the selected thesis. Follow each root fault line through the paper's
+Write around the selected thesis and its internal severity. Follow each root fault line through the paper's
 definition, mechanism, concrete case, evidence, and conclusion where those links
-matter. For a non-Accept recommendation, use at least three numbered comments and
-normally four. Unequal lengths are desirable. The central constructed case may span
-several paragraphs. Later comments may be short consequences or numerical checks.
+matter. Give `P0` and `P1-high` failures sustained treatment. For `P1-low` and `P2`,
+explain a realistic correction or narrowing path and avoid manufacturing fatality.
+For a non-Accept recommendation, use at least three numbered comments and normally
+four. Unequal lengths are desirable. The central constructed case may span several
+paragraphs. Later comments may be short consequences or numerical checks.
 
 When useful, let the reviewer define a concrete construction in first person, such
 as “Here, I consider the following attack.” Specify actors, initial state, operations,
