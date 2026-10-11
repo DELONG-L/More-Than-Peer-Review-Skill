@@ -9,14 +9,7 @@
 
 ## From manuscript to focused feedback
 
-```mermaid
-flowchart LR
-    A[Manuscript] --> B[Local document preflight]
-    B --> C[Claims and mechanisms]
-    C --> D[Focused review draft]
-    classDef stage fill:#f7f8f5,stroke:#aab8ae,color:#1f3028;
-    class A,B,C,D stage;
-```
+[![Manuscript → local document preflight → claims and mechanisms → focused review draft.](docs/illustrations/review-workflow.png)](docs/illustrations/review-workflow.png)
 
 The skill studies the whole manuscript privately, then develops a small set of connected author-facing comments around the decisive issues. It follows the problem, mechanism, assumptions, and evidence before proposing more experiments.
 
