@@ -14,6 +14,8 @@ flowchart LR
     A[Manuscript] --> B[Local document preflight]
     B --> C[Claims and mechanisms]
     C --> D[Focused review draft]
+    classDef stage fill:#f7f8f5,stroke:#aab8ae,color:#1f3028;
+    class A,B,C,D stage;
 ```
 
 The skill studies the whole manuscript privately, then develops a small set of connected author-facing comments around the decisive issues. It follows the problem, mechanism, assumptions, and evidence before proposing more experiments.
@@ -25,7 +27,7 @@ The skill studies the whole manuscript privately, then develops a small set of c
 | Prepare feedback | A focused submission review with source-checked criticisms |
 | Fill a requested review form | A draft mapped to the requested fields, within the user's authorization |
 
-Confidential processing requires manuscript-scoped authorization and permission under the venue's AI policy. Bundled scripts make no network or model calls; manuscript and review content stays local. The skill instructions define the handling and submission boundaries.
+Confidential processing requires manuscript-scoped authorization and permission under the venue's AI policy. Bundled scripts make no network or model calls. Review analysis runs locally; requested form filling follows the user's authorization. The skill instructions define the handling and submission boundaries.
 
 ## Get started
 
