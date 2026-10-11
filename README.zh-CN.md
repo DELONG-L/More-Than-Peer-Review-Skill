@@ -9,7 +9,7 @@
 
 ## 从稿件到重点明确的反馈
 
-[![论文稿件 → 本地文档检查 → 论点与机制分析 → 重点评审草稿。](docs/illustrations/review-workflow.png)](docs/illustrations/review-workflow.png)
+[![论文稿件 → 本地文档检查 → 论点与机制分析 → 重点评审草稿。](docs/illustrations/review-workflow-zh.png)](docs/illustrations/review-workflow-zh.png)
 
 先在私有记录中检查整篇稿件，再围绕决定性问题形成少量、相互关联的作者意见。评审首先检查问题、机制、假设与证据之间的关系，然后判断是否需要补充实验。
 

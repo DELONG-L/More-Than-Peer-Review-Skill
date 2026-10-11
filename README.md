@@ -9,7 +9,7 @@
 
 ## From manuscript to focused feedback
 
-[![Manuscript → local document preflight → claims and mechanisms → focused review draft.](docs/illustrations/review-workflow.png)](docs/illustrations/review-workflow.png)
+[![Manuscript → local document preflight → claims and mechanisms → focused review draft.](docs/illustrations/review-workflow-en.png)](docs/illustrations/review-workflow-en.png)
 
 The skill studies the whole manuscript privately, then develops a small set of connected author-facing comments around the decisive issues. It follows the problem, mechanism, assumptions, and evidence before proposing more experiments.
 
