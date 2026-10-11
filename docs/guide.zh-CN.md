@@ -2,55 +2,46 @@
 
 [返回首页](../README.zh-CN.md) · [English](guide.md)
 
-<div align="center">
+# More Than Peer Review
 
-<h1>More Than Peer Review</h1>
-<p>在本地核对稿件证据，形成重点明确的同行评审意见。</p>
-<p><a href="https://github.com/DELONG-L/More-Than-Peer-Review-Skill/actions/workflows/tests.yml"><img src="https://github.com/DELONG-L/More-Than-Peer-Review-Skill/actions/workflows/tests.yml/badge.svg?branch=main" alt="测试状态"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-333333" alt="MIT 许可证"></a></p>
-<p><a href="#开始使用"><strong>开始使用</strong></a> · <a href="docs/guide.zh-CN.md">使用指南</a> · <a href="README.md">English</a></p>
+More Than Peer Review 是一个在本地处理 PDF 或 DOCX 稿件的 Codex 审稿 Skill。
 
-</div>
+私有分析可以完整检查论文，但最终意见不会追求面面俱到。它先确定一条审稿主线，
+再选择通常一到两个决定性的研究动机、系统设计、算法、假设或 claim mechanism
+问题，并由这些根本问题展开至少三条、通常四条相互关联的意见。各点不要求彼此
+独立，同一原因的不同后果可以分别追问。
 
-## 从稿件到重点明确的反馈
+候选问题会先在私有记录中按 P0 到 P3 分级。P0 或 P1-high 可以沿同一根因持续追击，
+P1-low 或 P2 则应给出具体修改建议，不能被强行包装成致命问题。推荐结论还会根据
+用户提供的期刊 Q 分区或会议 CORE 排名调整接收门槛，但不会改变技术严重性或基本
+专业语气。
 
-```mermaid
-flowchart LR
-    A[稿件] --> B[本地文档检查]
-    B --> C[结论与机制分析]
-    C --> D[评审草稿]
-```
+写作阶段允许审稿人用第一人称构造攻击或反例，允许主评论明显长于后续评论，也
+允许直接以问题收尾。最终正文只使用 Section、Figure 或 Table 定位，不使用页码
+或行号，也不使用 em dash、分号和冒号。
 
-先在私有记录中检查整篇稿件，再围绕决定性问题形成少量、相互关联的作者意见。评审首先检查问题、机制、假设与证据之间的关系，然后判断是否需要补充实验。
+项目包含本地文档预检、独立工作区初始化、claim-evidence 检查、统计与可复现性
+审查、草稿骨架和最终格式校验工具。工具不会调用网络或模型服务。
 
-| 任务 | 交付内容 |
-|---|---|
-| 检查 PDF 或 DOCX | 本地预检结果和隔离的评审目录 |
-| 判断核心贡献 | 私有证据记录和与问题严重性对应的建议 |
-| 准备反馈 | 核对过依据、重点集中的作者意见 |
-| 填写指定评审表单 | 按用户授权将意见映射到表单草稿 |
-
-处理保密稿件前，需要针对该稿件的授权，并确认投稿平台允许计划中的 AI 辅助。内置脚本不发起网络或模型调用；稿件和评审内容留在本地。具体处理与提交边界见技能说明。
-
-## 开始使用
-
-首次安装：
+## 安装
 
 ```bash
 git clone https://github.com/DELONG-L/More-Than-Peer-Review-Skill.git
 cd More-Than-Peer-Review-Skill
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -s "$(pwd)/more-than-peer-review" "${CODEX_HOME:-$HOME/.codex}/skills/more-than-peer-review"
+ln -s "$(pwd)/more-than-peer-review" \
+  "${CODEX_HOME:-$HOME/.codex}/skills/more-than-peer-review"
 ```
 
-已有安装时先保留本地版本。然后调用：
+## 测试
 
-```text
-用 $more-than-peer-review 评审这篇稿件。
-重点判断方法机制与证据能否支持核心结论。
+```bash
+python3 -m unittest discover -s tests -v
+python3 -m py_compile more-than-peer-review/scripts/*.py tests/*.py
 ```
 
-脚本需要 Python 3.11 或更新版本，建议安装 `qpdf`、Poppler 和 Tesseract 用于文档检查。[使用指南](docs/guide.zh-CN.md)包含评审方式、依赖与测试说明。
+测试只使用合成材料。不得提交真实稿件、审稿文本、账号信息或审稿人身份。
 
-## 继续了解
+## 许可证
 
-[技能说明](more-than-peer-review/SKILL.md) · [文档安全](more-than-peer-review/references/document-security.md) · [贡献指南](CONTRIBUTING.md) · [第三方来源](../THIRD_PARTY_NOTICES.md) · [MIT 许可证](../LICENSE)
+MIT。参见 [LICENSE](../LICENSE) 和 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。
