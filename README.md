@@ -1,57 +1,52 @@
-# More Than Peer Review
+<div align="center">
 
-More Than Peer Review is a local Codex skill for producing focused academic peer
-reviews from PDF or DOCX manuscripts.
+<h1>More Than Peer Review</h1>
+<p>Local, evidence-grounded manuscript review with focused author feedback.</p>
+<p><a href="https://github.com/DELONG-L/More-Than-Peer-Review-Skill/actions/workflows/tests.yml"><img src="https://github.com/DELONG-L/More-Than-Peer-Review-Skill/actions/workflows/tests.yml/badge.svg?branch=main" alt="Tests"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-333333" alt="MIT licence"></a></p>
+<p><a href="#get-started"><strong>Get started</strong></a> · <a href="docs/guide.md">User guide</a> · <a href="README.zh-CN.md">简体中文</a></p>
 
-The private analysis may scan the whole paper. The final review does something more
-selective. It identifies one review thesis and normally one or two decisive faults in
-the motivation, design, algorithm, system model, or claim mechanism. It then develops
-at least three and normally four connected comments from those roots. The comments
-need not be independent.
+</div>
 
-Candidate findings are first rated privately from P0 to P3. Fatal P0 or P1-high
-failures receive sustained treatment. Remediable P1-low or P2 issues receive concrete
-repair advice and are not stretched into artificial fatal flaws. Recommendation
-thresholds are then calibrated to a supplied journal quartile or conference CORE
-rank, while technical severity and professional tone remain unchanged.
+## From manuscript to focused feedback
 
-The prose stage supports reviewer-authored attacks and counterexamples, uneven point
-lengths, direct questions, and restrained first person. It rejects page and line
-locators, em dashes, semicolons, and colons in the submission prose.
+```mermaid
+flowchart LR
+    A[Manuscript] --> B[Local document preflight]
+    B --> C[Claims and mechanisms]
+    C --> D[Focused review draft]
+```
 
-Bundled utilities perform local document preflight, workspace initialization,
-claim-evidence checks, statistical and reproducibility audits, scaffold generation,
-and final structure validation. They make no network or model calls.
+The skill studies the whole manuscript privately, then develops a small set of connected author-facing comments around the decisive issues. It follows the problem, mechanism, assumptions, and evidence before proposing more experiments.
 
-## Install
+| Task | What you receive |
+|---|---|
+| Inspect a PDF or DOCX | Local preflight findings and an isolated review workspace |
+| Evaluate the central contribution | A private evidence record and calibrated recommendation |
+| Prepare feedback | A focused submission review with source-checked criticisms |
+| Fill a requested review form | A draft mapped to the requested fields, within the user's authorization |
+
+Confidential processing requires manuscript-scoped authorization and permission under the venue's AI policy. Bundled scripts make no network or model calls; manuscript and review content stays local. The skill instructions define the handling and submission boundaries.
+
+## Get started
+
+For a fresh installation:
 
 ```bash
 git clone https://github.com/DELONG-L/More-Than-Peer-Review-Skill.git
 cd More-Than-Peer-Review-Skill
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -s "$(pwd)/more-than-peer-review" \
-  "${CODEX_HOME:-$HOME/.codex}/skills/more-than-peer-review"
+ln -s "$(pwd)/more-than-peer-review" "${CODEX_HOME:-$HOME/.codex}/skills/more-than-peer-review"
 ```
 
-Then invoke it with:
+Preserve an existing installation before replacing it. Then ask:
 
 ```text
 Use $more-than-peer-review to review this manuscript.
+Focus on whether its mechanism and evidence support the central claim.
 ```
 
-## Requirements and tests
+Python 3.11+ is required for the scripts; `qpdf`, Poppler, and Tesseract are recommended for document inspection. See the [user guide](docs/guide.md) for review behavior, requirements, and tests.
 
-- Python 3.11 or later
-- Recommended PDF tools include `qpdf`, Poppler, and Tesseract
+## Learn more
 
-```bash
-python3 -m unittest discover -s tests -v
-python3 -m py_compile more-than-peer-review/scripts/*.py tests/*.py
-```
-
-Use synthetic fixtures only. Never commit manuscripts, review text, security reports,
-credentials, venue correspondence, or reviewer identity.
-
-## License
-
-MIT. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+[Skill instructions](more-than-peer-review/SKILL.md) · [Document security](more-than-peer-review/references/document-security.md) · [Contribution guide](CONTRIBUTING.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [MIT licence](LICENSE)
